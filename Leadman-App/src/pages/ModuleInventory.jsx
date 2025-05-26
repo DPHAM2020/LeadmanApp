@@ -8,6 +8,9 @@ function ModuleInventory() {
     moduleType: "A",
   });
 
+  const handleSelect = (value) => {
+    setFormData((prev) => ({ ...prev, moduleType: value }));
+  };
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -15,6 +18,7 @@ function ModuleInventory() {
 
   const recordData = async (e) => {
     e.preventDefault();
+    console.log(formData);
     try {
       const response = await fetch("http://127.0.0.1:8000/module/add/", {
         method: "POST",
@@ -76,7 +80,7 @@ function ModuleInventory() {
                   type="button"
                   name="moduleType"
                   className={formData.moduleType === "A" ? "selected" : ""}
-                  onClick={() => handleChange("A")}
+                  onClick={() => handleSelect("A")}
                 >
                   A
                 </button>
@@ -84,7 +88,7 @@ function ModuleInventory() {
                   type="button"
                   name="moduleType"
                   className={formData.moduleType === "B" ? "selected" : ""}
-                  onClick={() => handleChange("B")}
+                  onClick={() => handleSelect("B")}
                 >
                   B
                 </button>
