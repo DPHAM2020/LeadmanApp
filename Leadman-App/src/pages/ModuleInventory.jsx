@@ -50,7 +50,7 @@ function ModuleInventory() {
           <form onSubmit={recordData}>
             <div id="inputs">
               <div id="radio-container">
-                <label>
+                {/* <label>
                   <input
                     type="radio"
                     name="moduleType"
@@ -71,7 +71,23 @@ function ModuleInventory() {
                     onChange={handleChange}
                   />
                   B
-                </label>
+                </label> */}
+                <button
+                  type="button"
+                  name="moduleType"
+                  className={formData.moduleType === "A" ? "selected" : ""}
+                  onClick={() => handleChange("A")}
+                >
+                  A
+                </button>
+                <button
+                  type="button"
+                  name="moduleType"
+                  className={formData.moduleType === "B" ? "selected" : ""}
+                  onClick={() => handleChange("B")}
+                >
+                  B
+                </button>
               </div>
               <div id="text-container">
                 <input
