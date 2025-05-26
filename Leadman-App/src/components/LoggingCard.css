@@ -1,0 +1,20 @@
+.button {
+  height: 150px;
+  width: 200px;
+  margin: 20px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+.button:hover {
+  border-color: #646cff;
+  background-color: #141414;
+  filter: drop-shadow(0 0 1.5em rgb(63, 61, 61));
+}
+
+.home-button {
+  margin: 10px;
+}
