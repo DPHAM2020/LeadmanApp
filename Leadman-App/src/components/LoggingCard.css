@@ -1,18 +1,27 @@
 .button {
-  height: 150px;
+  height: 100px;
   width: 200px;
   margin: 20px;
+  font-weight: bold;
+  color: #141414;
+  background-color: rgb(0, 217, 255);
   border-radius: 8px;
   border: 1px solid transparent;
   border: none;
   cursor: pointer;
-  transition: 0.3s ease-in-out;
+  transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
 .button:hover {
-  border-color: #646cff;
+  color: rgb(0, 217, 255);
   background-color: #141414;
-  filter: drop-shadow(0 0 1.5em rgb(63, 61, 61));
+  border: 2px solid rgb(0, 217, 255);
+  transform: translateY(-3px);
+  /* filter: drop-shadow(0 0 1.5em rgb(63, 61, 61)); */
+}
+
+.button:active {
+  transform: translateY(0px);
 }
 
 .home-button {

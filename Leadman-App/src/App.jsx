@@ -6,7 +6,7 @@ function App() {
   // const [count, setCount] = useState(0);
 
   return (
-    <>
+    <div className="page">
       {/* <div>
         <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
@@ -27,14 +27,14 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p> */}
-      <h1>Leadman FWH Website</h1>
+      <h1 id="home-header">Leadman FWH Website</h1>
       <div className="card-container">
         <LoggingCard cardTitle={"Machine Downtime"} link={"/downtimeLogger"} />
         <LoggingCard cardTitle={"FQC Checklist"} link={"/fqcChecklist"} />
         <LoggingCard cardTitle={"Module Inventory"} link={"/moduleInventory"} />
         <LoggingCard cardTitle={"aPower Inventory"} link={"/aPowerInventory"} />
       </div>
-    </>
+    </div>
   );
 }
 
