@@ -29,10 +29,10 @@ function App() {
       </p> */}
       <h1 id="home-header">Leadman FWH Website</h1>
       <div className="card-container">
-        <LoggingCard cardTitle={"Machine Downtime"} link={"/downtimeLogger"} />
-        <LoggingCard cardTitle={"FQC Checklist"} link={"/fqcChecklist"} />
         <LoggingCard cardTitle={"Module Inventory"} link={"/moduleInventory"} />
         <LoggingCard cardTitle={"aPower Inventory"} link={"/aPowerInventory"} />
+        <LoggingCard cardTitle={"Machine Downtime"} link={"/downtimeLogger"} />
+        <LoggingCard cardTitle={"FQC Checklist"} link={"/fqcChecklist"} />
       </div>
     </div>
   );

@@ -1,11 +1,34 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./ModuleInventory.css";
 
 function ModuleInventory() {
   const [formData, setFormData] = useState({
     sn: "",
     moduleType: "A",
+  });
+
+  const [aCount, setACount] = useState(0);
+  const [bCount, setBCount] = useState(0);
+
+  useEffect(() => {
+    const socket = new WebSocket("ws://127.0.0.1:8000/ws");
+
+    socket.onmessage = (event) => {
+      const units_today = JSON.parse(event.data);
+      let aCount = 0;
+      let bCount = 0;
+      for (let i = 0; i < units_today.length; i++) {
+        let curr_unit = units_today[i];
+        if (curr_unit["Module Type"] === "A") {
+          aCount += 1;
+        } else {
+          bCount += 1;
+        }
+      }
+      setACount(aCount);
+      setBCount(bCount);
+    };
   });
 
   const handleSelect = (value) => {
@@ -60,7 +83,8 @@ function ModuleInventory() {
                   className={formData.moduleType === "A" ? "selected" : ""}
                   onClick={() => handleSelect("A")}
                 >
-                  Module A
+                  <p>Module A</p>
+                  <div>{aCount} units</div>
                 </button>
                 <button
                   type="button"
@@ -68,7 +92,8 @@ function ModuleInventory() {
                   className={formData.moduleType === "B" ? "selected" : ""}
                   onClick={() => handleSelect("B")}
                 >
-                  Module B
+                  <p>Module B</p>
+                  <div>{bCount} units</div>
                 </button>
               </div>
               <div id="text-container">
